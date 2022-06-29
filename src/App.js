@@ -1,11 +1,27 @@
 import logo from './logo.svg';
 import './App.css';
+import Pizza from './components/pizza';
+import Timer from './components/Timer';
+import { useState } from 'react';
 
 function App() {
+  
+  const [showTimer, setShowTimer] = useState(true)
+
+  /* const state = useSate(true)
+  console.log(state);
+  const showTimer = state[0]
+  const setShowTimer = state[1] */
+  if (3 < 5 && 10 < 20){
+
+  } 
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+          <Pizza name="Kolbasz" price= "1500"/>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -17,6 +33,8 @@ function App() {
         >
           Learn React
         </a>
+        {showTimer ? <Timer/> : <div>no timer</div>}
+        <button onClick = {() => {setShowTimer(false)}}>Hide </button>
       </header>
     </div>
   );
