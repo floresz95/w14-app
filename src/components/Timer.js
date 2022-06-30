@@ -1,41 +1,49 @@
-import React from 'react';
+import React from 'react'
 
 class Timer extends React.Component {
     constructor(props) {
         super(props);
-        this.state={
-            time: 0
+        this.state = {
+            time: 0,
         }
-        setInterval(() => {
+        setInterval(()=>{
             this.incrementTimer()
         }, 1000)
-        console.log("constructor called");
-    }
 
-    componentDidMount() {
-        console.log("component created");
+        console.log("constructor called")
     }
-    componentDidUpdate() {
-        console.log("smth changed");
+    
+    componentDidMount() {
+        console.log("component created")
     }
 
     componentWillUnmount(){
-        console.log("component unmounted");
+        console.log("csinálunk valamit ténylegesen")
     }
-    incrementTimer () {
+
+    componentDidUpdate() {
+        console.log("something changed")
+        if (this.state.time === 5) {
+            //Ez az if ebben a formában nem csinál semmit, mert a 41. sorban írtuk meg ezt, de ha komplexebb dolgot kéne csinálni, akkor azt itt kéne, nem a 41. sorban. Erre később nézünk példát majd az órán.
+        }
+    }
+
+    incrementTimer() {
         this.setState({
             time: this.state.time+1
         })
     }
 
-    render () {
-        return(
+    render(){
+        console.log("render done")
+        return (
             <>
-                <div>
+                <div className={(this.state.time >= 5) ? "blue" : ""}>
                     {this.state.time}
                 </div>
-                <button onClick={() => {this.incrementTimer()}}>Click me</button>
-            </> 
+                <button onClick={()=>{this.incrementTimer()}}> Click me
+                </button>
+            </>
         )
     }
 }

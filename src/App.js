@@ -3,6 +3,7 @@ import './App.css';
 import Pizza from './components/pizza';
 import Timer from './components/Timer';
 import { useState } from 'react';
+import Timer2 from './components/Timer2';
 
 function App() {
   
@@ -25,6 +26,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+    
+        <Timer2/>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -33,7 +36,7 @@ function App() {
         >
           Learn React
         </a>
-        {showTimer ? <Timer/> : <div>no timer</div>}
+        {/* {showTimer ? <Timer/> : <div>no timer</div>} */}
         <button onClick = {() => {setShowTimer(false)}}>Hide </button>
       </header>
     </div>
